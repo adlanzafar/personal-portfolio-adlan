@@ -1,53 +1,84 @@
+/* Import global styles agar font dsb dikenali */
 @import url('global.css');
 
+/* === HALAMAN UTAMA (HOME) === */
 .portfolio-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 50px 30px;
-    padding: 40px 0;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:50px 30px;
+    padding:40px 0;
 }
 
 .grid-item a {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    text-align:center;
 }
 
 .grid-item img {
-    max-width: 60%;
-    height: auto;
-    margin-bottom: 20px;
-    transition: opacity 0.2s;
+    max-width:60%;
+    height:auto;
+    margin-bottom:20px;
+    transition:opacity 0.2s;
 }
 
 .grid-item a:hover img {
-    opacity: 0.7;
+    opacity:0.7;
 }
 
 .grid-item .title {
-    text-transform: uppercase;
-    font-size: 0.8rem;
-    letter-spacing: 0.1em;
-    color: #888;
-    line-height: 1.6;
-    font-weight: 500;
+    text-transform:uppercase;
+    font-size:0.8rem;
+    letter-spacing:0.1em;
+    color:#888;
+    line-height:1.6;
+    font-weight:500;
 }
 
 .grid-item .title small {
-    font-weight: 400;
-    font-size: 0.7rem;
+    font-weight:400;
+    font-size:0.7rem;
 }
 
+/* === EFEK ANIMASI SCROLL (Tambahan) === */
 .grid-item {
-    opacity: 0;
-    transform: translateY(20px);
+    opacity:0;
+    transform:translateY(20px);
     transition:
         opacity 0.6s ease-out,
         transform 0.6s ease-out;
 }
 
 .grid-item.is-visible {
-    opacity: 1;
-    transform: translateY(0);
+    opacity:1;
+    transform:translateY(0);
+}
+
+/* === MEDIA QUERY UNTUK LAYAR HP (KHUSUS HOME) === */
+@media (max-width: 600px) {
+    /* Ubah grid: dari 3 kolom menjadi 2 kolom */
+    .portfolio-grid {
+        grid-template-columns: repeat(2, 1fr); 
+        gap: 20px;
+    }
+    
+    /* Perkecil judul dan subjudul */
+    .grid-item .title {
+        font-size: 0.7rem;
+    }
+    
+    /* Perkecil gambar/ikon */
+    .grid-item img {
+        max-width: 80%;
+        margin-bottom: 10px;
+    }
+}
+
+/* Untuk layar sangat kecil */
+@media (max-width: 400px) {
+    /* Ubah grid: dari 2 kolom menjadi 1 kolom penuh */
+    .portfolio-grid {
+        grid-template-columns: 1fr;
+    }
 }

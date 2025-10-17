@@ -1,55 +1,43 @@
+/* Import Font dari Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700;800&display=swap');
 
+/* Reset dan Gaya Dasar Body */
 body {
-    font-family: 'Montserrat', sans-serif;
-    margin: 0;
-    background-color: #ffffff;
-    color: #111111;
-    font-size: 16px;
+    font-family:'Montserrat', sans-serif;
+    margin:0;
+    background-color:#ffffff;
+    color:#111111;
+    font-size:16px;
 }
-
 .container {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 20px 40px;
+    max-width:900px;
+    margin:0 auto;
+    padding:20px 40px;
 }
-
 a {
-    text-decoration: none;
-    color: inherit;
-    transition: color 0.2s ease-in-out;
+    text-decoration:none;
+    color:inherit;
+    transition:color 0.2s ease-in-out;
 }
 
-.header,
-.footer {
-    text-align: center;
-}
-
-.header {
-    padding-top: 20px;
-}
-
-.header h1 {
+/* === HEADER & FOOTER === */
+.header, .footer { text-align: center; }
+.header { padding-top:20px; }
+.header h1 { 
     font-size: 4.2rem;
     font-weight: 800;
     letter-spacing: 0.15em;
     margin: 0;
 }
-
-.header .subtitle {
+.header .subtitle { 
     font-size: 0.8rem;
     letter-spacing: 0.4em;
     color: #888;
     margin-top: 12px;
     padding-left: 0.4em;
 }
-
-.main-nav {
-    margin-top: 30px;
-    padding-bottom: 20px;
-}
-
-.main-nav ul {
+.main-nav { margin-top:30px; padding-bottom:20px; }
+.main-nav ul { 
     list-style: none;
     padding: 0;
     margin: 0;
@@ -57,100 +45,60 @@ a {
     justify-content: center;
     gap: 30px;
 }
-
-.main-nav a {
+.main-nav a { 
     text-transform: uppercase;
     font-size: 0.8rem;
     letter-spacing: 0.1em;
     color: #888;
 }
+.main-nav a:hover { color: #00aab2; }
+.main-nav .active a { color: #00aab2; font-weight: 500; }
+.footer { padding:40px 0; margin-top: 50px; }
+.social-icons { display:flex; justify-content:center; gap:20px; font-size:1.5rem; margin-bottom:20px; }
+.social-icons a { color: #aaa; }
+.social-icons a:hover { color: #00aab2; }
+.footer .copyright { color: #aaa;font-size: 0.75rem;letter-spacing: 0.1em; }
 
-.main-nav a:hover {
-    color: #00aab2;
-}
-
-.main-nav .active a {
-    color: #00aab2;
-    font-weight: 500;
-}
-
-.footer {
-    padding: 40px 0;
-    margin-top: 50px;
-}
-
-.social-icons {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    font-size: 1.5rem;
-    margin-bottom: 20px;
-}
-
-.social-icons a {
-    color: #aaa;
-}
-
-.social-icons a:hover {
-    color: #00aab2;
-}
-
-.footer .copyright {
-    color: #aaa;
-    font-size: 0.75rem;
-    letter-spacing: 0.1em;
-}
-
+/* === NOTIFIKASI FORMULIR (TAMBAHAN) === */
 .notification {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: white;
-    padding: 25px 35px;
-    border-radius: 8px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
-    text-align: center;
-    z-index: 1000;
-
-    max-width: 380px;
-    width: 90%;
-    box-sizing: border-box;
-
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.3s, visibility 0.3s;
+    position:fixed; top:50%; left:50%; transform:translate(-50%,-50%);
+    background-color:white; padding:25px 35px; border-radius:8px;
+    box-shadow:0 4px 20px rgba(0,0, 0,0.15); text-align:center; z-index:1000;
+    max-width:380px; width:90%; box-sizing:border-box;
+    opacity:0; visibility:hidden; transition:opacity 0.3s, visibility 0.3s;
 }
-
-.notification.show {
-    opacity: 1;
-    visibility: visible;
-}
-
-.notification h3 {
-    margin-top: 0;
-    color: #333;
-    font-size: 1.1rem;
-}
-
-.notification p {
-    color: #666;
-    font-size: 0.9rem;
-    line-height: 1.5;
-}
-
+.notification.show { opacity:1; visibility:visible; }
+.notification h3 { margin-top:0; color:#333; font-size:1.1rem; }
+.notification p { color:#666; font-size:0.9rem; line-height:1.5; }
 .notification .close-btn {
-    background-color: #333;
-    color: white;
-    border: none;
-    padding: 8px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-top: 15px;
-    font-size: 0.8rem;
-    transition: background-color 0.2s;
+    background-color:#333; color:white; border:none; padding:8px 20px;
+    border-radius:5px; cursor:pointer; margin-top:15px; font-size:0.8rem;
+    transition:background-color 0.2s;
 }
+.notification .close-btn:hover { background-color:#555; }
 
-.notification .close-btn:hover {
-    background-color: #555;
+
+/* === GLOBAL MEDIA QUERY UNTUK LAYAR HP === */
+@media (max-width: 768px) {
+    /* Perkecil Judul Utama */
+    .header h1 {
+        font-size: 3rem; 
+    }
+    /* Sembunyikan Subtitle agar lebih bersih */
+    .header .subtitle {
+        display: none;
+    }
+    /* Jadikan navigasi menu berantakan menjadi tumpukan */
+    .main-nav ul {
+        flex-wrap: wrap; 
+        gap: 8px 15px; 
+    }
+    /* Kecilkan ukuran font menu */
+    .main-nav a {
+        font-size: 0.75rem;
+    }
+    /* Perkecil padding container */
+    .container {
+        padding: 10px 20px;
+    }
 }
