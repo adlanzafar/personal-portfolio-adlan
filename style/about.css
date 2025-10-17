@@ -1,107 +1,128 @@
-/* Import global styles agar font dsb dikenali */
 @import url('global.css');
 
-/* === HALAMAN ABOUT (MODIFIKASI UNTUK ANIMASI & LAYOUT) === */
-.about-container { 
-    display:flex; gap:50px; padding:40px 0;
+.about-container {
+    display: flex;
+    gap: 50px;
+    padding: 40px 0;
     align-items: flex-start;
 }
 
-/* 1. Animasi Foto Profil (Muncul dari kiri) */
-.about-image { 
-    flex:2; 
-    opacity:0;
-    transform:translateX(-50px);
+.about-image {
+    flex: 2;
+    opacity: 0;
+    transform: translateX(-50px);
     transition:
         opacity 1s ease-out,
         transform 1s ease-out;
 }
-.about-image img { width: 100%;height: auto; }
 
-/* Kelas yang akan ditambahkan oleh JS untuk memunculkan foto */
+.about-image img {
+    width: 100%;
+    height: auto;
+}
+
 .about-image.is-visible {
-    opacity:1;
-    transform:translateX(0);
+    opacity: 1;
+    transform: translateX(0);
 }
 
-/* 2. Menjaga Layout Teks agar rapi (Desktop) */
-.about-text { 
-    flex:3; 
-    min-height:400px; 
-} 
+.about-text {
+    flex: 3;
+    min-height: 400px;
+}
 
-/* 3. Gaya Judul H2 (Hi, I'm Adlan.) + Efek Kursor (Desktop) */
 #typing-line-0 {
-    font-family:serif; font-size:2rem; font-weight:normal; margin-top:0;
-    display:inline-block; border-right:0.15em solid #111111;
-    overflow:hidden; white-space:nowrap;
-    animation:blink-caret 0.75s step-end infinite;
+    font-family: serif;
+    font-size: 2rem;
+    font-weight: normal;
+    margin-top: 0;
+    display: inline-block;
+    border-right: 0.15em solid #111111;
+    overflow: hidden;
+    white-space: nowrap;
+    animation: blink-caret 0.75s step-end infinite;
 }
 
-/* Kursor hilang saat typing selesai */
 #typing-line-0.typing-done {
-    border-right:none; animation:none;
+    border-right: none;
+    animation: none;
 }
 
-/* Gaya paragraf umum (Desktop) */
-.about-text h2 { font-family: serif;font-size: 2.5rem;font-weight: normal;margin-top: 0; }
-.about-text p { line-height: 1.8;color: #555; margin-bottom: 1em; } 
-.about-text a { color: #00aab2;font-weight: 500; }
+.about-text h6 {
+    font-family: serif;
+    font-size: 2.5rem;
+    font-weight: normal;
+    margin-top: 0;
+}
 
-/* 🚀 EFEK MENULIS (TYPING EFFECT) untuk Paragraf*/
+.about-text p {
+    line-height: 1.8;
+    color: #555;
+    margin-bottom: 1em;
+}
+
+.about-text a {
+    color: #00aab2;
+    font-weight: 500;
+}
+
 .typing-text-container {
-    display:inline; 
-    border-right:0.15em solid #00aab2;
-    animation:blink-caret 0.75s step-end infinite;
+    display: inline;
+    border-right: 0.15em solid #00aab2;
+    animation: blink-caret 0.75s step-end infinite;
 }
 
 @keyframes blink-caret {
-    from, to { border-color:transparent } 
-    50% { border-color:#00aab2; } 
+
+    from,
+    to {
+        border-color: transparent
+    }
+
+    50% {
+        border-color: #00aab2;
+    }
 }
 
 .typing-text-container strong {
-    font-weight:700;
-    color:#111111;
+    font-weight: 700;
+    color: #111111;
 }
 
-/* === MEDIA QUERY UNTUK LAYAR HP (KHUSUS ABOUT) === */
+
 @media (max-width: 768px) {
-    /* Aturan untuk about-container: Ubah tata letak FLEX menjadi tumpukan */
     .about-container {
-        flex-direction: column; 
-        gap: 20px; 
+        flex-direction: column;
+        gap: 20px;
     }
 
-    /* KUNCI PERBAIKAN: Perkecil ukuran font paragraf di HP */
     .about-text p {
-        font-size: 0.9rem; /* Ukuran yang lebih nyaman dibaca di HP */
-        line-height: 1.6; /* Renggangkan sedikit agar tidak terlalu padat */
+        font-size: 0.9rem;
+        line-height: 1.6;
     }
-    
-    /* Aturan untuk foto: */
+
     .about-image {
-        flex: auto; 
-        max-width: 60%; 
-        margin: 0 auto; 
+        flex: auto;
+        max-width: 60%;
+        margin: 0 auto;
         transform: translateX(-20px);
     }
-    
+
     .about-image img {
         width: 100%;
-        max-width: 250px; 
+        max-width: 250px;
         height: auto;
     }
 
     /* Aturan untuk teks: */
     .about-text {
         flex: auto;
-        min-height: auto; 
-        padding: 0 10px; /* Tambahkan padding di sisi teks agar tidak menempel ke tepi */
+        min-height: auto;
+        padding: 0 10px;
     }
-    
+
     .about-text h2 {
-        font-size: 2rem; 
+        font-size: 2rem;
         text-align: center;
     }
 }
