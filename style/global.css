@@ -7,7 +7,7 @@ body {
     margin:0;
     background-color:#ffffff;
     color:#111111;
-    font-size:16px;
+    font-size:16px; /* Font size default untuk desktop */
 }
 .container {
     max-width:900px;
@@ -80,25 +80,59 @@ a {
 
 /* === GLOBAL MEDIA QUERY UNTUK LAYAR HP === */
 @media (max-width: 768px) {
-    /* Perkecil Judul Utama */
+    /* Perkecil Judul Utama agar sejajar */
     .header h1 {
-        font-size: 3rem; 
+        font-size: 2.2rem; /* Ukuran yang pas agar "ADLAN ZAFAR" muat */
+        letter-spacing: 0.1em;
+        margin-bottom: 5px; /* Kurangi jarak ke subtitle */
     }
-    /* Sembunyikan Subtitle agar lebih bersih */
+    
+    /* KEMBALIKAN SUBTITLE DI HP, tapi perkecil */
     .header .subtitle {
-        display: none;
+        display: block; /* Pastikan subtitle terlihat */
+        font-size: 0.6rem; 
+        letter-spacing: 0.2em; /* Dikurangi agar lebih padat */
+        margin-top: 5px; 
+        padding-left: 0; 
     }
-    /* Jadikan navigasi menu berantakan menjadi tumpukan */
+    
+    /* Aturan untuk Navigasi (Menu) */
+    .main-nav {
+        margin-top: 15px; 
+        padding-bottom: 10px;
+    }
+
     .main-nav ul {
+        /* KUNCI PERBAIKAN: Gunakan Flex dan Wrap agar tumpuk otomatis di HP */
+        display: flex; 
         flex-wrap: wrap; 
-        gap: 8px 15px; 
+        justify-content: center; /* Pusatkan semua item menu */
+        gap: 8px 20px; 
+        padding: 0;
+        text-align: center;
     }
-    /* Kecilkan ukuran font menu */
+    
+    .main-nav ul li {
+        display: block; 
+        margin: 0; 
+    }
+    
     .main-nav a {
         font-size: 0.75rem;
     }
-    /* Perkecil padding container */
+    
     .container {
         padding: 10px 20px;
+    }
+}
+
+/* Tambahan: Khusus di layar yang sangat kecil */
+@media (max-width: 450px) {
+    .header h1 {
+        font-size: 2rem; 
+    }
+    .header .subtitle {
+        font-size: 0.55rem;
+        letter-spacing: 0.15em;
     }
 }

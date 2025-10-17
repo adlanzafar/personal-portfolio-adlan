@@ -24,15 +24,15 @@
     transform:translateX(0);
 }
 
-/* 2. Menjaga Layout Teks agar rapi */
+/* 2. Menjaga Layout Teks agar rapi (Desktop) */
 .about-text { 
     flex:3; 
-    min-height:400px; /* Nilai DITINGKATKAN untuk mencegah kolom kolaps di Desktop */
+    min-height:400px; 
 } 
 
-/* 3. Gaya Judul H2 (Hi, I'm Adlan.) + Efek Kursor */
+/* 3. Gaya Judul H2 (Hi, I'm Adlan.) + Efek Kursor (Desktop) */
 #typing-line-0 {
-    font-family:serif; font-size:2.5rem; font-weight:normal; margin-top:0;
+    font-family:serif; font-size:2rem; font-weight:normal; margin-top:0;
     display:inline-block; border-right:0.15em solid #111111;
     overflow:hidden; white-space:nowrap;
     animation:blink-caret 0.75s step-end infinite;
@@ -43,7 +43,7 @@
     border-right:none; animation:none;
 }
 
-/* Gaya paragraf umum */
+/* Gaya paragraf umum (Desktop) */
 .about-text h2 { font-family: serif;font-size: 2.5rem;font-weight: normal;margin-top: 0; }
 .about-text p { line-height: 1.8;color: #555; margin-bottom: 1em; } 
 .about-text a { color: #00aab2;font-weight: 500; }
@@ -69,28 +69,39 @@
 @media (max-width: 768px) {
     /* Aturan untuk about-container: Ubah tata letak FLEX menjadi tumpukan */
     .about-container {
-        flex-direction: column; /* Tumpuk: Foto di atas, Teks di bawah */
+        flex-direction: column; 
         gap: 20px; 
     }
 
+    /* KUNCI PERBAIKAN: Perkecil ukuran font paragraf di HP */
+    .about-text p {
+        font-size: 0.9rem; /* Ukuran yang lebih nyaman dibaca di HP */
+        line-height: 1.6; /* Renggangkan sedikit agar tidak terlalu padat */
+    }
+    
     /* Aturan untuk foto: */
     .about-image {
         flex: auto; 
-        max-width: 80%; /* Batasi lebar foto agar tidak terlalu besar */
-        margin: 0 auto; /* Pusatkan foto di tengah halaman */
-        
-        /* Ubah posisi awal animasi agar tidak terlalu jauh */
+        max-width: 60%; 
+        margin: 0 auto; 
         transform: translateX(-20px);
+    }
+    
+    .about-image img {
+        width: 100%;
+        max-width: 250px; 
+        height: auto;
     }
 
     /* Aturan untuk teks: */
     .about-text {
         flex: auto;
-        min-height: auto; /* Hapus min-height paksaan untuk HP */
+        min-height: auto; 
+        padding: 0 10px; /* Tambahkan padding di sisi teks agar tidak menempel ke tepi */
     }
     
     .about-text h2 {
-        font-size: 2rem; /* Kecilkan ukuran judul agar muat */
+        font-size: 2rem; 
         text-align: center;
     }
 }

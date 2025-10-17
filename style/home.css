@@ -60,18 +60,21 @@
     /* Ubah grid: dari 3 kolom menjadi 2 kolom */
     .portfolio-grid {
         grid-template-columns: repeat(2, 1fr); 
-        gap: 20px;
+        gap: 25px 15px; /* Jarak yang lebih rapat */
+    }
+    
+    /* KUNCI: Batasi ukuran ikon agar proporsional */
+    .grid-item img {
+        max-width: 80%; 
+        width: auto;
+        max-height: 80px; /* Batasi tinggi maksimal ikon agar proporsional */
+        margin-bottom: 10px;
     }
     
     /* Perkecil judul dan subjudul */
     .grid-item .title {
-        font-size: 0.7rem;
-    }
-    
-    /* Perkecil gambar/ikon */
-    .grid-item img {
-        max-width: 80%;
-        margin-bottom: 10px;
+        font-size: 0.65rem; 
+        line-height: 1.4;
     }
 }
 
